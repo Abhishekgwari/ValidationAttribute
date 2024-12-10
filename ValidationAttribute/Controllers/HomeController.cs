@@ -22,8 +22,11 @@ namespace ValidationAttribute.Controllers
         public IActionResult Index(Student std)
         {
 
-            return View();
-
+        
+            if (ModelState.IsValid)
+            {
+                ModelState.Clear();
+            }
             // Model state
             //if (ModelState.IsValid) { 
             //return "Name is" + std.Name;
@@ -32,6 +35,7 @@ namespace ValidationAttribute.Controllers
             //{
             //    return "Validation FAILED";
             //}
+            return View();
         }
 
         public IActionResult Privacy()
